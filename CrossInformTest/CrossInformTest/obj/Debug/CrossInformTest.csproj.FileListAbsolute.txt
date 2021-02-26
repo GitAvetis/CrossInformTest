@@ -1,0 +1,14 @@
+C:\Users\1\source\repos\CrossInformTest\CrossInformTest\bin\Debug\CrossInformTest.exe.config
+C:\Users\1\source\repos\CrossInformTest\CrossInformTest\bin\Debug\CrossInformTest.exe
+C:\Users\1\source\repos\CrossInformTest\CrossInformTest\bin\Debug\CrossInformTest.pdb
+C:\Users\1\source\repos\CrossInformTest\CrossInformTest\obj\Debug\CrossInformTest.csprojAssemblyReference.cache
+C:\Users\1\source\repos\CrossInformTest\CrossInformTest\obj\Debug\CrossInformTest.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\CrossInformTest\CrossInformTest\obj\Debug\CrossInformTest.exe
+C:\Users\1\source\repos\CrossInformTest\CrossInformTest\obj\Debug\CrossInformTest.pdb
+C:\Users\1\source\repos\CrossInformTest — копия\CrossInformTest\bin\Debug\CrossInformTest.exe.config
+C:\Users\1\source\repos\CrossInformTest — копия\CrossInformTest\bin\Debug\CrossInformTest.exe
+C:\Users\1\source\repos\CrossInformTest — копия\CrossInformTest\bin\Debug\CrossInformTest.pdb
+C:\Users\1\source\repos\CrossInformTest — копия\CrossInformTest\obj\Debug\CrossInformTest.csprojAssemblyReference.cache
+C:\Users\1\source\repos\CrossInformTest — копия\CrossInformTest\obj\Debug\CrossInformTest.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\CrossInformTest — копия\CrossInformTest\obj\Debug\CrossInformTest.exe
+C:\Users\1\source\repos\CrossInformTest — копия\CrossInformTest\obj\Debug\CrossInformTest.pdb
