@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CrossInformTest
 //    Тестовое задание
@@ -20,19 +21,20 @@ namespace CrossInformTest
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Введите путь к файлу");
             Stopwatch stopWatch = new Stopwatch();
+
             try
             {
                 Console.WriteLine("Укажите путь к вашему файлу с его названием в формате: C:\\Users\\1\\Documents\\vlastelin_kolec_bratstvo_kol_ca.txt");
+                int _maxValue = 0; //наибольшее число повторов среди триплетов
+
                 string path = Console.ReadLine();
                 stopWatch.Start();//запуск таймера работы программы
              
                 string[] text = File.ReadAllLines($@"{path}");//формирование массива строк из указанного файла
                 
                 Dictionary<string, int> DictionaryOfTriplets = new Dictionary<string, int>();//объявление словоря, где триплет-это ключ,а количество его повторов - значение
-                
-                int _counterOfTriplets = 1;//счётчик для подсчёта количества конкретных триплетов в общем списке
+
 
                 foreach (var line in text)
                 {
@@ -56,15 +58,16 @@ namespace CrossInformTest
                                 if (DictionaryOfTriplets.ContainsKey(triplet) != true)//проверка наличия полученного триплета в словаре триплетов
                                 {
                                     
-                                    DictionaryOfTriplets.Add(triplet, _counterOfTriplets);//если он новый, то добавляется в словарь со значением 1
+                                    DictionaryOfTriplets.Add(triplet, 1);//если он новый, то добавляется в словарь со значением 1
   
                                 }
                                 else
                                 {
                                     DictionaryOfTriplets[triplet] +=1;//если уже присутствует, его значение в словаре увеличится на единицу
+                                    if (DictionaryOfTriplets[triplet] > _maxValue)
+                                        _maxValue = DictionaryOfTriplets[triplet];
                                 }
 
-                              _counterOfTriplets = 0; 
                             }
                             
 
@@ -74,33 +77,33 @@ namespace CrossInformTest
                     
                 }
                 
-                int _maxValue = 0; //наибольшее число повторов среди триплетов
-                 _maxValue = MaxValue(_maxValue, DictionaryOfTriplets)+1;
+               
+                _maxValue = MaxValue(_maxValue, DictionaryOfTriplets)+1;
                 int _counterOfCycles = 0;
-
+                _maxValue++;//увеличиваю максимальное значение на 1, так как в последующем цикле оно будет уменьшено на 1
                 while (_counterOfCycles < 10)//вывод 10 триплетов с наибольшим числом повторов в тексте
                 {
                     _maxValue -=   1;
 
                     if (DictionaryOfTriplets.Values.Contains(_maxValue))
                     {
-                        foreach (string key in DictionaryOfTriplets.Keys)
+                        foreach(var key in DictionaryOfTriplets.Keys)
                         {
                             if (DictionaryOfTriplets[key] == _maxValue)
                             {
                                 if (_counterOfCycles == 9)
                                 {
-                                    Console.WriteLine($"{key}.");
-                                    _counterOfCycles++;
+                                   Console.WriteLine($"{key}.");
+                                   _counterOfCycles++;
                                 }
                                 else
                                 {
-                                    Console.Write($"{key},");
-                                    _counterOfCycles++;
+                                   Console.Write($"{key},");
+                                   _counterOfCycles++;
                                 }
-                                
+
                             }
-                            
+
                         }
                     }
                    
@@ -118,11 +121,12 @@ namespace CrossInformTest
                     ts.Hours, ts.Minutes, ts.Seconds,
                     ts.Milliseconds );
                 Console.WriteLine("RunTime " + elapsedTime);
+                GC.Collect();
             }
             
             Console.ReadKey();
         }
-        public static int  MaxValue(int _maxValue, Dictionary<string,int> keyValuePairs)//функция для поиска наибольшего числа повторов среди триплетов
+        public static int MaxValue(int _maxValue, Dictionary<string, int> keyValuePairs)//функция для поиска наибольшего числа повторов среди триплетов
         {
             foreach (string key in keyValuePairs.Keys)
             {
@@ -131,6 +135,6 @@ namespace CrossInformTest
             }
             return _maxValue;
         }
-        
+
     }
 }
